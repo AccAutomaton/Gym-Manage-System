@@ -1,7 +1,5 @@
 package com.acautomaton.gym.controller;
 
-
-
 import com.acautomaton.gym.dao.AdminuserDao;
 import com.acautomaton.gym.entity.Adminuser;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -18,32 +16,21 @@ import javax.servlet.http.HttpSession;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @Description: 管理员登录Controller控制层
- * @Author: LiuJian
- * @Date: 2020/4/4
- */
 @Controller
 @RequestMapping("/")
 public class AdminuserConntroller {
-    @Autowired
-    private AdminuserDao adminuserDao;
+    private final AdminuserDao adminuserDao;
 
-    /**
-     * @Description: 输入端口号直接跳转登录界面
-     * @Author: LiuJian
-     * @Date: 2020/4/29
-     */
+    @Autowired
+    public AdminuserConntroller(AdminuserDao adminuserDao) {
+        this.adminuserDao = adminuserDao;
+    }
+
     @RequestMapping("/")
     public String beforeLogin(){
         return "login";
     }
 
-    /**
-     * @Description: 管理员登录验证方法
-     * @Author: LiuJian
-     * @Date: 2020/4/4
-     */
     @RequestMapping("/dl/yz")
     public String login(String username, String password,HttpSession httpSession,Model model){
 
@@ -59,48 +46,23 @@ public class AdminuserConntroller {
             model.addAttribute("msg","用户名或密码错误,请重新输入");
             return "login";
         }
-
-        /*Adminuser a= adminuserDao.findByAdminNameAndAdminmima(username,password);
-        if(a!=null){
-            httpSession.setAttribute("user",a);
-            return "WEB-INF/jsp/index" ;
-        }
-        model.addAttribute("mag","账号或密码错误");
-        return "login";*/
     }
 
-    /**
-     * @Description: 退出登录后清楚session
-     * @Author: LiuJian
-     * @Date: 2020/5/1
-     */
     @RequestMapping("/logout")
     public String logout(){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         return "redirect:/login";
-
     }
 
-    /**
-     * @Description: 跳转到修改密码界面
-     * @Author: LiuJian
-     * @Date: 2020/5/1
-     */
     @RequestMapping("/updPassword")
     public String updPassword(){
         return "WEB-INF/jsp/updPassword";
     }
 
-
-    /**
-     * @Description: 修改密码
-     * @Author: LiuJian
-     * @Date: 2020/5/1
-     */
     @RequestMapping("/upd/updPassword")
     public String updPasswordConfirm(String oldPassword,String newPassword,String newPasswordAgain,HttpSession httpSession,Model model){
-        Pattern p = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!.%*#?&])[A-Za-z\\d$@$!.%*#?&]{8,}$");
+        Pattern p = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@!.%*#?&])[A-Za-z\\d$@!.%*#?&]{8,}$");
         Matcher m = p.matcher(newPassword);
         if(!m.matches()){
             model.addAttribute("msg","新密码最少为8位并为字母+数字+特殊字符");
@@ -122,6 +84,4 @@ public class AdminuserConntroller {
         subject.logout();
        return "redirect:/login.jsp";
     }
-
-
 }
