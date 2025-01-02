@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.liujian</groupId>
-    <artifactId>gymxmjpa</artifactId>
+    <artifactId>GymManageSystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>gymxmjpa</name>
+    <name>GymManageSystem</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -114,7 +114,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.4.2.RELEASE</version>
                 <configuration>
-                    <mainClass>com.liujian.gymxmjpa.GymxmjpaApplication</mainClass>
+                    <mainClass>com.liujian.gymxmjpa.GymManageSystemApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
 

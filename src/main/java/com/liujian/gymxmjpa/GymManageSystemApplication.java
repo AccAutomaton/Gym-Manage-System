@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date: 2020/4/1
  */
 @SpringBootApplication
-public class GymxmjpaApplication {
+public class GymManageSystemApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GymxmjpaApplication.class, args);
+        SpringApplication.run(GymManageSystemApplication.class, args);
     }
 }
