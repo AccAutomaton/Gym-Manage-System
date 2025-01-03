@@ -3,12 +3,11 @@ package com.acautomaton.gym.service;
 import com.acautomaton.gym.dao.GoodInfoDao;
 import com.acautomaton.gym.dao.MenberDao;
 import com.acautomaton.gym.dao.PrivateCoachInfoDao;
-import com.acautomaton.gym.dao.chongzhiDao;
+import com.acautomaton.gym.dao.RechargeDao;
 import com.acautomaton.gym.entity.Chongzhi;
 import com.acautomaton.gym.entity.GoodInfo;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.entity.PrivateCoachInfo;
-import com.acautomaton.gym.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +37,7 @@ public class MenberDaoImpl {
     private GoodInfoDao goodInfoDao;
 
     @Autowired
-    private chongzhiDao chongZhiDao;
+    private RechargeDao chongZhiDao;
 
     @PersistenceContext
     private EntityManager entityManager;

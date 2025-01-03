@@ -10,15 +10,10 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-/**
- * @Description: 充值信息Dao层接口
- * @Author: LiuJian
- * @Date: 2020/4/3
- */
-public interface chongzhiDao extends JpaRepository<Chongzhi,Long> {
+public interface RechargeDao extends JpaRepository<Chongzhi, Long> {
 
     Page<Chongzhi> findAll(Specification<Chongzhi> specification, Pageable pageable);
 
-    @Query(value = "select * FROM  chongzhi where memberid =:memberid",nativeQuery = true)
-    public List<Chongzhi> queryByIdNative(@Param("memberid") long memberid) ;
+    @Query(value = "select * FROM chongzhi where memberid =:memberid", nativeQuery = true)
+    List<Chongzhi> queryByIdNative(@Param("memberid") long memberid);
 }

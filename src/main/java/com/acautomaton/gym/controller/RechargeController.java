@@ -1,7 +1,7 @@
 package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.MenberDao;
-import com.acautomaton.gym.dao.chongzhiDao;
+import com.acautomaton.gym.dao.RechargeDao;
 import com.acautomaton.gym.entity.Chongzhi;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.service.MenberDaoImpl;
@@ -25,12 +25,12 @@ import java.util.*;
 @Controller
 @RequestMapping("/cz")
 public class RechargeController {
-    private final chongzhiDao chongzhiDao;
+    private final RechargeDao chongzhiDao;
     private final MenberDao menberDao;
     private final MenberDaoImpl menberDaoImpl;
 
     @Autowired
-    public RechargeController(chongzhiDao chongzhiDao, MenberDao menberDao, MenberDaoImpl menberDaoImpl) {
+    public RechargeController(RechargeDao chongzhiDao, MenberDao menberDao, MenberDaoImpl menberDaoImpl) {
         this.chongzhiDao = chongzhiDao;
         this.menberDao = menberDao;
         this.menberDaoImpl = menberDaoImpl;
