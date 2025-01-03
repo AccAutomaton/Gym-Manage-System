@@ -1,6 +1,6 @@
 package com.acautomaton.gym.controller;
 
-import com.acautomaton.gym.dao.AdminuserDao;
+import com.acautomaton.gym.dao.AdminUserDao;
 import com.acautomaton.gym.entity.Adminuser;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.SecurityUtils;
@@ -19,10 +19,10 @@ import java.util.regex.Pattern;
 @Controller
 @RequestMapping("/")
 public class AdminuserConntroller {
-    private final AdminuserDao adminuserDao;
+    private final AdminUserDao adminuserDao;
 
     @Autowired
-    public AdminuserConntroller(AdminuserDao adminuserDao) {
+    public AdminuserConntroller(AdminUserDao adminuserDao) {
         this.adminuserDao = adminuserDao;
     }
 

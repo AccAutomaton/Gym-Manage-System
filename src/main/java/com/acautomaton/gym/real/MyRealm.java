@@ -1,6 +1,6 @@
 package com.acautomaton.gym.real;
 
-import com.acautomaton.gym.dao.AdminuserDao;
+import com.acautomaton.gym.dao.AdminUserDao;
 import com.acautomaton.gym.entity.Adminuser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MyRealm extends AuthorizingRealm {
 
     @Autowired
-    private AdminuserDao adminuserDao;
+    private AdminUserDao adminuserDao;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
