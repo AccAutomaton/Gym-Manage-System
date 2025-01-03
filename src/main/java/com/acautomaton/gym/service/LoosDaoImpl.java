@@ -1,6 +1,6 @@
 package com.acautomaton.gym.service;
 
-import com.acautomaton.gym.dao.LoosDao;
+import com.acautomaton.gym.dao.LoseDao;
 import com.acautomaton.gym.entity.Loos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import java.util.Map;
 @Service
 public class LoosDaoImpl {
     @Autowired
-    private LoosDao loosDao;
+    private LoseDao loosDao;
     @PersistenceContext
     private EntityManager entityManager;
 

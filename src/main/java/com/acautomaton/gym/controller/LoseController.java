@@ -1,6 +1,6 @@
 package com.acautomaton.gym.controller;
 
-import com.acautomaton.gym.dao.LoosDao;
+import com.acautomaton.gym.dao.LoseDao;
 import com.acautomaton.gym.entity.Loos;
 import com.acautomaton.gym.service.LoosDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +14,9 @@ import java.util.*;
 @RequestMapping("/loos")
 public class LoseController {
     private final LoosDaoImpl loosDaoImpl;
-    private final LoosDao loosDao;
+    private final LoseDao loosDao;
 
-    @Autowired LoseController(LoosDaoImpl loosDaoImpl, LoosDao loosDao) {
+    @Autowired LoseController(LoosDaoImpl loosDaoImpl, LoseDao loosDao) {
         this.loosDaoImpl = loosDaoImpl;
         this.loosDao = loosDao;
     }
