@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -56,11 +55,7 @@ public class CoachController {
     }
 
     private Map<String, Object> getCoachMap(String coachname, int pageSize, int pageNumber) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("coachname", coachname);
-        map.put("qi", (pageNumber - 1) * pageSize);
-        map.put("shi", pageSize);
-        return coachDaoImpl.query(map);
+        return PrivateCoachController.getCoachMap(coachname, pageSize, pageNumber, coachDaoImpl);
     }
 
     @RequestMapping("/count")
