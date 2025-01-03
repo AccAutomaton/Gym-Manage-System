@@ -4,11 +4,10 @@ import com.acautomaton.gym.dao.CoachDao;
 import com.acautomaton.gym.dao.MenberDao;
 import com.acautomaton.gym.dao.PrivateCoachInfoDao;
 import com.acautomaton.gym.dao.SubjectDao;
-import com.acautomaton.gym.service.CoachDaoImpl;
-import com.acautomaton.gym.service.MenberDaoImpl;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.entity.PrivateCoachInfo;
 import com.acautomaton.gym.entity.Subject;
+import com.acautomaton.gym.service.CoachDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,111 +18,76 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * @Description: 会员私教课程Controller控制层
- * @Author: LiuJian
- * @Date: 2020/4/9
- */
 @Controller
 @RequestMapping("/private")
 public class PrivateCoachController {
-   @Autowired
-    private CoachDao coachDao;
-   @Autowired
-   private CoachDaoImpl coachDaoImpl;
-   @Autowired
-    private SubjectDao subjectDao;
-   @Autowired
-   private MenberDao menberDao;
-   @Autowired
-   private PrivateCoachInfoDao privateCoachInfoDao;
-   @Autowired
-   private MenberDaoImpl menberDaoimpl;
+    private final CoachDao coachDao;
+    private final CoachDaoImpl coachDaoImpl;
+    private final SubjectDao subjectDao;
+    private final MenberDao menberDao;
+    private final PrivateCoachInfoDao privateCoachInfoDao;
 
-    /**
-     * @Description: 会员私教课程-进入会员私教课程界面
-     * @Author: LiuJian
-     * @Date: 2020/4/9
-     */
+    @Autowired
+    public PrivateCoachController(CoachDao coachDao, CoachDaoImpl coachDaoImpl,
+                                  SubjectDao subjectDao, MenberDao menberDao,
+                                  PrivateCoachInfoDao privateCoachInfoDao) {
+        this.coachDao = coachDao;
+        this.coachDaoImpl = coachDaoImpl;
+        this.subjectDao = subjectDao;
+        this.menberDao = menberDao;
+        this.privateCoachInfoDao = privateCoachInfoDao;
+    }
+
     @RequestMapping("/jin3")
-    public String jin3(){
-
+    public String jin3() {
         return "WEB-INF/jsp/privatecoach";
     }
 
-    /**
-     * @Description: 会员私教课程-根据私教姓名分页查询
-     * @Author: LiuJian
-     * @Date: 2020/4/9
-     */
     @RequestMapping("/query")
     @ResponseBody
-    public Map<String,Object> query(String coachname, int pageSize, int pageNumber){
-        Map<String,Object>  map1=new HashMap<String,Object>();
-        map1.put("coachname",coachname);
-        map1.put("qi",(pageNumber-1)*pageSize);
-        map1.put("shi",pageSize);
+    public Map<String, Object> query(String coachname, int pageSize, int pageNumber) {
+        return getCoachMap(coachname, pageSize, pageNumber, coachDaoImpl);
+    }
+
+    static Map<String, Object> getCoachMap(String coachname, int pageSize, int pageNumber, CoachDaoImpl coachDaoImpl) {
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("coachname", coachname);
+        map1.put("qi", (pageNumber - 1) * pageSize);
+        map1.put("shi", pageSize);
         return coachDaoImpl.query(map1);
     }
 
-    /**
-     * @Description: 会员私教课程-查询所有会员信息
-     * @Author: LiuJian
-     * @Date: 2020/4/9
-     */
     @RequestMapping("/query2")
     @ResponseBody
-    public List<Member> query2(){
+    public List<Member> query2() {
         return menberDao.findAll();
     }
 
-    /**
-     * @Description: 会员私教课程-查询教练,课程,会员所有信息
-     * @Author: LiuJian
-     * @Date: 2020/4/9
-     */
     @RequestMapping("/topcoach")
     @ResponseBody
-    public Map<String,Object> topcoach(){
-        Map<String,Object> map = new HashMap<String,Object>();
-        map.put("coach",coachDao.findAll());
-        map.put("subject",subjectDao.findAll());
-        map.put("menber",menberDao.findAll());
-        return map ;
+    public Map<String, Object> topcoach() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("coach", coachDao.findAll());
+        map.put("subject", subjectDao.findAll());
+        map.put("menber", menberDao.findAll());
+        return map;
     }
 
-    /**
-     * @Description: 会员私教课程-添加会员私教课程
-     * @Author: LiuJian
-     * @Date: 2020/4/9
-     */
     @RequestMapping("/add")
     @ResponseBody
-    public  void save(PrivateCoachInfo privateCoachInfo){
-//       System.out.println(privateCoachInfo.getMember().getMemberId());
+    public void save(PrivateCoachInfo privateCoachInfo) {
         privateCoachInfoDao.save(privateCoachInfo);
     }
 
-    /**
-     * @Description: 会员私教课程-根据课程id查询课程信息
-     * @Author: LiuJian
-     * @Date: 2020/4/9
-     */
     @RequestMapping("/cha")
     @ResponseBody
-    public Optional<Subject> one(long id){
+    public Optional<Subject> one(long id) {
         return subjectDao.findById(id);
     }
 
-    /**
-     * @Description: 会员私教课程-根据会员id查询会员信息
-     * @Author: LiuJian
-     * @Date: 2020/4/9
-     */
     @RequestMapping("/cha2")
     @ResponseBody
-    public Optional<Member> two(long id){
+    public Optional<Member> two(long id) {
         return menberDao.findById(id);
     }
-
 }
