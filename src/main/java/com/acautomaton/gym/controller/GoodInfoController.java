@@ -3,12 +3,12 @@ package com.acautomaton.gym.controller;
 import com.acautomaton.gym.dao.GoodInfoDao;
 import com.acautomaton.gym.dao.GoodsDao;
 import com.acautomaton.gym.dao.MenberDao;
-import com.acautomaton.gym.service.GoodInfoDaoImpl;
-import com.acautomaton.gym.service.GoodsDaoImpl;
-import com.acautomaton.gym.service.MenberDaoImpl;
 import com.acautomaton.gym.entity.GoodInfo;
 import com.acautomaton.gym.entity.Goods;
 import com.acautomaton.gym.entity.Member;
+import com.acautomaton.gym.service.GoodInfoDaoImpl;
+import com.acautomaton.gym.service.GoodsDaoImpl;
+import com.acautomaton.gym.service.MenberDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,161 +18,103 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * @Description: 商品售卖信息管理Controller控制层
- * @Author: LiuJian
- * @Date: 2020/4/14
- */
 @Controller
 @RequestMapping("/goodinfo")
 public class GoodInfoController {
-   @Autowired
-    private GoodInfoDao goodInfoDao;
-   @Autowired
-   private GoodsDao goodsDao;
-   @Autowired
-   private GoodInfoDaoImpl goodInfoDaoImpl;
-    @Autowired
-    private MenberDao menberDao;
-    @Autowired
-    private GoodsDaoImpl goodsDaoImpl;
-    @Autowired
-    private MenberDaoImpl menberDaoImpl;
+    private final GoodInfoDao goodInfoDao;
+    private final GoodsDao goodsDao;
+    private final GoodInfoDaoImpl goodInfoDaoImpl;
+    private final MenberDao menberDao;
+    private final GoodsDaoImpl goodsDaoImpl;
+    private final MenberDaoImpl menberDaoImpl;
 
-    /**
-     * @Description: 商品售卖信息管理-进入商品售卖信息界面
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
+    @Autowired
+    public GoodInfoController(GoodInfoDao goodInfoDao, GoodsDao goodsDao, GoodInfoDaoImpl goodInfoDaoImpl,
+                              MenberDao menberDao, GoodsDaoImpl goodsDaoImpl, MenberDaoImpl menberDaoImpl) {
+        this.goodInfoDao = goodInfoDao;
+        this.goodsDao = goodsDao;
+        this.goodInfoDaoImpl = goodInfoDaoImpl;
+        this.menberDao = menberDao;
+        this.menberDaoImpl = menberDaoImpl;
+        this.goodsDaoImpl = goodsDaoImpl;
+    }
+
     @RequestMapping("/spinfo")
-    public String spinfo(){
-
+    public String spinfo() {
         return "WEB-INF/jsp/GoodInfo";
     }
 
-    /**
-     * @Description: 商品售卖信息管理-根据商品id,会员id查询商品售卖信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/query")
     @ResponseBody
-    public Map<String,Object> query(Integer goodsid,Integer memberid, int pageSize, int pageNumber){
-        Map<String,Object>  map1=new HashMap<String,Object>();
-        map1.put("goodsid",goodsid);
-        map1.put("memberid",memberid);
-        map1.put("qi",(pageNumber-1)*pageSize);
-        map1.put("shi",pageSize);
-        return goodInfoDaoImpl.query(map1);
+    public Map<String, Object> query(Integer goodsid, Integer memberid, int pageSize, int pageNumber) {
+        return getGoodMap(goodsid, memberid, pageSize, pageNumber);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-根据商品id,会员id删除信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
+    private Map<String, Object> getGoodMap(Integer goodsid, Integer memberid, int pageSize, int pageNumber) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("goodsid", goodsid);
+        map.put("memberid", memberid);
+        map.put("qi", (pageNumber - 1) * pageSize);
+        map.put("shi", pageSize);
+        return goodInfoDaoImpl.query(map);
+    }
+
     @RequestMapping("/del")
     @ResponseBody
-    public  Map<String,Object> del(long id,Integer goodsid,Integer memberid,int pageSize, int pageNumber){
-         goodInfoDao.deleteById(id);
-         Map<String,Object>  map1=new HashMap<String,Object>();
-         map1.put("goodsid",goodsid);
-         map1.put("memberid",memberid);
-         map1.put("qi",(pageNumber-1)*pageSize);
-         map1.put("shi",pageSize);
-         return goodInfoDaoImpl.query(map1);
+    public Map<String, Object> del(long id, Integer goodsid, Integer memberid, int pageSize, int pageNumber) {
+        goodInfoDao.deleteById(id);
+        return getGoodMap(goodsid, memberid, pageSize, pageNumber);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-根据商品id,会员id批量删除信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/dellist")
     @ResponseBody
-    public Map<String,Object> delete(int array[],Integer goodsid,Integer memberid,int pageSize, int pageNumber){
+    public Map<String, Object> delete(int[] array, Integer goodsid, Integer memberid, int pageSize, int pageNumber) {
         System.out.println(array[0]);
-        for(int i = 0;i<array.length;i++){
-            goodInfoDao.deleteById((long) array[i]);
+        for (int j : array) {
+            goodInfoDao.deleteById((long) j);
         }
-        return query(goodsid,memberid,pageSize,pageNumber);
+        return query(goodsid, memberid, pageSize, pageNumber);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-添加商品售卖信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/add")
     @ResponseBody
-    public  void save(GoodInfo goodInfo){
+    public void save(GoodInfo goodInfo) {
         goodInfoDao.save(goodInfo);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-根据商品id查询商品售卖信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/cha")
     @ResponseBody
-    public Optional<GoodInfo> one(long goodsId){
+    public Optional<GoodInfo> one(long goodsId) {
         return goodInfoDao.findById(goodsId);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-根据商品id查询商品信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/chagoods")
     @ResponseBody
-    public Optional<Goods> oneg(long goodsId){
+    public Optional<Goods> oneg(long goodsId) {
         return goodsDao.findById(goodsId);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-根据会员id查询会员信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/chamember")
     @ResponseBody
-    public Optional<Member> onem(long memberId){
+    public Optional<Member> onem(long memberId) {
         return menberDao.findById(memberId);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-修改商品售卖信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/upd")
     @ResponseBody
-    public  void upd(GoodInfo goodInfo){
+    public void upd(GoodInfo goodInfo) {
         goodInfoDao.save(goodInfo);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-修改会员信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/updmember")
     @ResponseBody
-    public  void upd(Member member){
+    public void upd(Member member) {
         menberDaoImpl.upd(member);
     }
 
-    /**
-     * @Description: 商品售卖信息管理-修改商品信息
-     * @Author: LiuJian
-     * @Date: 2020/4/14
-     */
     @RequestMapping("/updgoods")
     @ResponseBody
-    public  void upd(Goods goods){
+    public void upd(Goods goods) {
         goodsDaoImpl.update(goods);
     }
-
 }
