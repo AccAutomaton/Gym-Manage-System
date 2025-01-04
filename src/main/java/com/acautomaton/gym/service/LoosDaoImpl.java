@@ -1,7 +1,7 @@
 package com.acautomaton.gym.service;
 
 import com.acautomaton.gym.dao.LoseDao;
-import com.acautomaton.gym.entity.Loos;
+import com.acautomaton.gym.entity.Lose;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +30,7 @@ public class LoosDaoImpl {
      */
     public Map<String,Object> query(Map<String,Object> map1){
         //分页
-        String jpal="from Loos where 1=1";
+        String jpal="from Lose where 1=1";
         if(map1.get("loosName")!=null && !map1.get("loosName").equals("")){
             jpal=jpal+" and loosName like '%"+map1.get("loosName")+"%'";
         }
@@ -41,7 +41,7 @@ public class LoosDaoImpl {
         qu.setMaxResults((int)map1.get("shi"));
 
         //查询多少条数据
-        String jpa="select count(l) from Loos l where 1=1";
+        String jpa="select count(l) from Lose l where 1=1";
 
         if(map1.get("loosName")!=null && !map1.get("loosName").equals("")){
             jpa=jpa+" and loosName like '%"+map1.get("loosName")+"%'";
@@ -58,8 +58,8 @@ public class LoosDaoImpl {
      * @Author: LiuJian
      * @Date: 2020/4/14
      */
-    public int update(Loos loos){
-        Loos loos1=loosDao.findById(loos.getLoosId()).get();
+    public int update(Lose loos){
+        Lose loos1=loosDao.findById(loos.getLoosId()).get();
        loos1.setLoosStatus(loos.getLoosStatus());
        loos1.setReceiveName(loos.getReceiveName());
        loos1.setReceivePhone(loos.getReceivePhone());

@@ -1,7 +1,7 @@
 package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.LoseDao;
-import com.acautomaton.gym.entity.Loos;
+import com.acautomaton.gym.entity.Lose;
 import com.acautomaton.gym.service.LoosDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,27 +38,27 @@ public class LoseController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public void save(Loos loos) {
+    public void save(Lose loos) {
         loosDao.save(loos);
     }
 
     @RequestMapping("/query3")
     @ResponseBody
-    public List<Loos> query3(long loosId) {
-        List<Loos> list = new ArrayList<>();
+    public List<Lose> query3(long loosId) {
+        List<Lose> list = new ArrayList<>();
         list.add(loosDao.findById(loosId).get());
         return list;
     }
 
     @RequestMapping("/quhui")
     @ResponseBody
-    public void upd(Loos loos) {
+    public void upd(Lose loos) {
         loosDaoImpl.update(loos);
     }
 
     @RequestMapping("/cha")
     @ResponseBody
-    public Optional<Loos> one(Long loosId) {
+    public Optional<Lose> one(Long loosId) {
         return loosDao.findById(loosId);
     }
 
