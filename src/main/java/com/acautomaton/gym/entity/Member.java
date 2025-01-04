@@ -22,7 +22,7 @@ public class Member implements Serializable {
     private java.sql.Date nenberDate;
     @ManyToOne
     @JoinColumn(name = "MemberTypes")
-    private Membertype membertypes;
+    private MemberType membertypes;
     private long memberStatic;
     private float memberbalance;
     private java.sql.Date Memberxufei;

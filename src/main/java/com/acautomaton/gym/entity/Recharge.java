@@ -26,7 +26,7 @@ public class Recharge {
 
   @OneToOne
   @JoinColumn(name = "Typeid")
-  private Membertype membertype;
+  private MemberType membertype;
   private long money;
   private long ssmoney;
   private long zlmoney;

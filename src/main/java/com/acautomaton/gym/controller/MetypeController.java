@@ -1,7 +1,7 @@
 package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.MemberTypeDao;
-import com.acautomaton.gym.entity.Membertype;
+import com.acautomaton.gym.entity.MemberType;
 import com.acautomaton.gym.service.MembertypeDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,20 +34,20 @@ public class MetypeController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public void save(Membertype membertype) {
+    public void save(MemberType membertype) {
 
         memberttypeDao.save(membertype);
     }
 
     @RequestMapping("/cha")
     @ResponseBody
-    public Optional<Membertype> one(long typeId) {
+    public Optional<MemberType> one(long typeId) {
         return memberttypeDao.findById(typeId);
     }
 
     @RequestMapping("/upd")
     @ResponseBody
-    public void upd(Membertype membertype) {
+    public void upd(MemberType membertype) {
         memberttypeDao.save(membertype);
     }
 }

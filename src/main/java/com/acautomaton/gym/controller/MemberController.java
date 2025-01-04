@@ -4,7 +4,7 @@ import com.acautomaton.gym.dao.MemberDao;
 import com.acautomaton.gym.dao.RechargeDao;
 import com.acautomaton.gym.entity.Recharge;
 import com.acautomaton.gym.entity.Member;
-import com.acautomaton.gym.entity.Membertype;
+import com.acautomaton.gym.entity.MemberType;
 import com.acautomaton.gym.service.MenberDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -114,7 +114,7 @@ public class MemberController {
         chongzhi.setDate(dat);
         chongzhi.setCzStatic(2L);
         chongzhiDao.save(chongzhi);
-        Membertype membertype = new Membertype();
+        MemberType membertype = new MemberType();
         membertype.setTypeId(chongzhi.getMembertype().getTypeId());
 
         Member member = menberDao.findById(chongzhi.getMember().getMemberId()).get();

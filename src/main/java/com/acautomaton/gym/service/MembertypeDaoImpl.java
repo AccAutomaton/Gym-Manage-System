@@ -1,7 +1,7 @@
 package com.acautomaton.gym.service;
 
 import com.acautomaton.gym.dao.MemberTypeDao;
-import com.acautomaton.gym.entity.Membertype;
+import com.acautomaton.gym.entity.MemberType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +28,8 @@ public class MembertypeDaoImpl {
      * @Author: LiuJian
      * @Date: 2020/4/4
      */
-    public List<Membertype> cha(){
-        List<Membertype> list=memberttypeDao.findAll();
+    public List<MemberType> cha(){
+        List<MemberType> list=memberttypeDao.findAll();
         return list;
     }
 
@@ -38,9 +38,9 @@ public class MembertypeDaoImpl {
      * @Author: LiuJian
      * @Date: 2020/4/4
      */
-    public Membertype cha2(int id){
+    public MemberType cha2(int id){
         Long lo=new Long(id);
-        Membertype list=memberttypeDao.findById(lo).get();
+        MemberType list=memberttypeDao.findById(lo).get();
         return list;
     }
     @PersistenceContext
@@ -53,7 +53,7 @@ public class MembertypeDaoImpl {
      */
     public Map<String,Object> query(Map<String,Object> map1){
         //分页
-        String jpal="from Membertype where 1=1";
+        String jpal="from MemberType where 1=1";
         if(map1.get("typeName")!=null && !map1.get("typeName").equals("")){
             jpal=jpal+" and TypeName like '%"+map1.get("typeName")+"%'";
         }
@@ -64,7 +64,7 @@ public class MembertypeDaoImpl {
         qu.setMaxResults((int)map1.get("shi"));
 
         //查询多少条数据
-        String jpa="select count(t) from Membertype t where 1=1";
+        String jpa="select count(t) from MemberType t where 1=1";
 
         if(map1.get("typeName")!=null && !map1.get("typeName").equals("")){
             jpa=jpa+" and TypeName like '%"+map1.get("typeName")+"%'";

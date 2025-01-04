@@ -1,6 +1,6 @@
 package com.acautomaton.gym.controller;
 
-import com.acautomaton.gym.entity.Membertype;
+import com.acautomaton.gym.entity.MemberType;
 import com.acautomaton.gym.service.MembertypeDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +28,7 @@ public class MembertypeController {
 
     @RequestMapping("/query")
     @ResponseBody
-    public List<Membertype> query() {
+    public List<MemberType> query() {
         return membertypeDaoImpl.cha();
     }
 
@@ -48,7 +48,7 @@ public class MembertypeController {
 
     @RequestMapping("/query2")
     @ResponseBody
-    public Membertype query2(int xztype) {
+    public MemberType query2(int xztype) {
         return membertypeDaoImpl.cha2(xztype);
     }
 }
