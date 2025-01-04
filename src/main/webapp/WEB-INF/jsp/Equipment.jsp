@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <script src="${pageContext.request.contextPath}/static/jquery-3.2.1.min.js">
     window.onunload(alert("yemian"))
 </script>

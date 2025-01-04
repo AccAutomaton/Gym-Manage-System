@@ -22,7 +22,7 @@ public class EquipmentController {
 
     @RequestMapping("/yemian")
     public String yemian() {
-        return "WEB-INF/jsp/CEquipment";
+        return "WEB-INF/jsp/Equipment";
     }
 
     @RequestMapping("/query")
