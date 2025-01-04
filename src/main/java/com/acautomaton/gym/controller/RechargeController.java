@@ -1,8 +1,8 @@
 package com.acautomaton.gym.controller;
 
-import com.acautomaton.gym.dao.MenberDao;
+import com.acautomaton.gym.dao.MemberDao;
 import com.acautomaton.gym.dao.RechargeDao;
-import com.acautomaton.gym.entity.Chongzhi;
+import com.acautomaton.gym.entity.Recharge;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.service.MenberDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +26,11 @@ import java.util.*;
 @RequestMapping("/cz")
 public class RechargeController {
     private final RechargeDao chongzhiDao;
-    private final MenberDao menberDao;
+    private final MemberDao menberDao;
     private final MenberDaoImpl menberDaoImpl;
 
     @Autowired
-    public RechargeController(RechargeDao chongzhiDao, MenberDao menberDao, MenberDaoImpl menberDaoImpl) {
+    public RechargeController(RechargeDao chongzhiDao, MemberDao menberDao, MenberDaoImpl menberDaoImpl) {
         this.chongzhiDao = chongzhiDao;
         this.menberDao = menberDao;
         this.menberDaoImpl = menberDaoImpl;
@@ -51,7 +51,7 @@ public class RechargeController {
 
     @RequestMapping("/xin")
     @ResponseBody
-    public Map<String, Object> cye(Chongzhi chongzhi) {
+    public Map<String, Object> cye(Recharge chongzhi) {
         Member member = menberDao.findById(chongzhi.getMember().getMemberId()).get();
         member.setMemberbalance(member.getMemberbalance() + chongzhi.getMoney());
         menberDao.save(member);
@@ -80,14 +80,14 @@ public class RechargeController {
         final Date startTime = sdf.parse(xdate);
         final Date endTime = sdf.parse(ddate);
         Pageable pageable = new PageRequest(pageNumber - 1, pageSize);
-        Specification<Chongzhi> specification = (root, criteriaQuery, criteriaBuilder) -> {
+        Specification<Recharge> specification = (root, criteriaQuery, criteriaBuilder) -> {
             List<Predicate> list = new ArrayList<>();
             list.add(criteriaBuilder.between(root.get("date"), startTime, endTime));
 
             return criteriaBuilder.and(list.toArray(new Predicate[0]));
         };
-        Page<Chongzhi> list1 = chongzhiDao.findAll(specification, pageable);
-        List<Chongzhi> li = list1.getContent();
+        Page<Recharge> list1 = chongzhiDao.findAll(specification, pageable);
+        List<Recharge> li = list1.getContent();
         map.put("total", list1.getTotalElements());
         map.put("rows", li);
         return map;
@@ -99,7 +99,7 @@ public class RechargeController {
         String[] array = {"2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12"};
         int[] intar = new int[12];
         for (int i = 0; i < array.length; i++) {
-            String jpa = "select sum(a.money) from Chongzhi as a where Date like('%" + array[i] + "%')";
+            String jpa = "select sum(a.money) from Recharge as a where Date like('%" + array[i] + "%')";
             Query query = entityManager.createQuery(jpa);
             Object obj = query.getSingleResult();
             if (obj == null) {

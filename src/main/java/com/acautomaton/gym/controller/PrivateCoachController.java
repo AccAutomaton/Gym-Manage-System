@@ -1,7 +1,7 @@
 package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.CoachDao;
-import com.acautomaton.gym.dao.MenberDao;
+import com.acautomaton.gym.dao.MemberDao;
 import com.acautomaton.gym.dao.PrivateCoachInfoDao;
 import com.acautomaton.gym.dao.SubjectDao;
 import com.acautomaton.gym.entity.Member;
@@ -24,12 +24,12 @@ public class PrivateCoachController {
     private final CoachDao coachDao;
     private final CoachDaoImpl coachDaoImpl;
     private final SubjectDao subjectDao;
-    private final MenberDao menberDao;
+    private final MemberDao menberDao;
     private final PrivateCoachInfoDao privateCoachInfoDao;
 
     @Autowired
     public PrivateCoachController(CoachDao coachDao, CoachDaoImpl coachDaoImpl,
-                                  SubjectDao subjectDao, MenberDao menberDao,
+                                  SubjectDao subjectDao, MemberDao menberDao,
                                   PrivateCoachInfoDao privateCoachInfoDao) {
         this.coachDao = coachDao;
         this.coachDaoImpl = coachDaoImpl;

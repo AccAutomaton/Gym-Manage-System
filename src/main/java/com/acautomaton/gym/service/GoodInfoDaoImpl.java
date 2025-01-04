@@ -1,6 +1,6 @@
 package com.acautomaton.gym.service;
 
-import com.acautomaton.gym.dao.MenberDao;
+import com.acautomaton.gym.dao.MemberDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ import java.util.Map;
 public class GoodInfoDaoImpl {
 
     @Autowired
-    private MenberDao menberDao;
+    private MemberDao menberDao;
     @PersistenceContext
     private EntityManager entityManager;
 

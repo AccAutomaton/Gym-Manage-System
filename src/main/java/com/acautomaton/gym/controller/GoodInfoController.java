@@ -2,7 +2,7 @@ package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.GoodInfoDao;
 import com.acautomaton.gym.dao.GoodsDao;
-import com.acautomaton.gym.dao.MenberDao;
+import com.acautomaton.gym.dao.MemberDao;
 import com.acautomaton.gym.entity.GoodInfo;
 import com.acautomaton.gym.entity.Goods;
 import com.acautomaton.gym.entity.Member;
@@ -24,13 +24,13 @@ public class GoodInfoController {
     private final GoodInfoDao goodInfoDao;
     private final GoodsDao goodsDao;
     private final GoodInfoDaoImpl goodInfoDaoImpl;
-    private final MenberDao menberDao;
+    private final MemberDao menberDao;
     private final GoodsDaoImpl goodsDaoImpl;
     private final MenberDaoImpl menberDaoImpl;
 
     @Autowired
     public GoodInfoController(GoodInfoDao goodInfoDao, GoodsDao goodsDao, GoodInfoDaoImpl goodInfoDaoImpl,
-                              MenberDao menberDao, GoodsDaoImpl goodsDaoImpl, MenberDaoImpl menberDaoImpl) {
+                              MemberDao menberDao, GoodsDaoImpl goodsDaoImpl, MenberDaoImpl menberDaoImpl) {
         this.goodInfoDao = goodInfoDao;
         this.goodsDao = goodsDao;
         this.goodInfoDaoImpl = goodInfoDaoImpl;

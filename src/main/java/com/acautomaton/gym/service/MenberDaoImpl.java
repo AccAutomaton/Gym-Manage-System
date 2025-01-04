@@ -1,10 +1,10 @@
 package com.acautomaton.gym.service;
 
 import com.acautomaton.gym.dao.GoodInfoDao;
-import com.acautomaton.gym.dao.MenberDao;
+import com.acautomaton.gym.dao.MemberDao;
 import com.acautomaton.gym.dao.PrivateCoachInfoDao;
 import com.acautomaton.gym.dao.RechargeDao;
-import com.acautomaton.gym.entity.Chongzhi;
+import com.acautomaton.gym.entity.Recharge;
 import com.acautomaton.gym.entity.GoodInfo;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.entity.PrivateCoachInfo;
@@ -28,7 +28,7 @@ public class MenberDaoImpl {
 
 
     @Autowired
-    private MenberDao menberDao;
+    private MemberDao menberDao;
 
     @Autowired
     private PrivateCoachInfoDao privateCoachInfoDao;
@@ -173,9 +173,9 @@ public class MenberDaoImpl {
             }
         }
         //根据会员id在充值信息表中查询是否有其信息
-        List<Chongzhi> chongzhiList = chongZhiDao.queryByIdNative(memid);
+        List<Recharge> chongzhiList = chongZhiDao.queryByIdNative(memid);
         if(chongzhiList != null && chongzhiList.size()>0){
-            for(Chongzhi chongzhi : chongzhiList){
+            for(Recharge chongzhi : chongzhiList){
                 if(memid.equals(chongzhi.getMember().getMemberId())){
                     chongZhiDao.delete(chongzhi);
                 }

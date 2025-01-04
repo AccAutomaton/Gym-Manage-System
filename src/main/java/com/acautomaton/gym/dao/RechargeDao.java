@@ -1,6 +1,6 @@
 package com.acautomaton.gym.dao;
 
-import com.acautomaton.gym.entity.Chongzhi;
+import com.acautomaton.gym.entity.Recharge;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -10,10 +10,10 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface RechargeDao extends JpaRepository<Chongzhi, Long> {
+public interface RechargeDao extends JpaRepository<Recharge, Long> {
 
-    Page<Chongzhi> findAll(Specification<Chongzhi> specification, Pageable pageable);
+    Page<Recharge> findAll(Specification<Recharge> specification, Pageable pageable);
 
     @Query(value = "select * FROM chongzhi where memberid =:memberid", nativeQuery = true)
-    List<Chongzhi> queryByIdNative(@Param("memberid") long memberid);
+    List<Recharge> queryByIdNative(@Param("memberid") long memberid);
 }

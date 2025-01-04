@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Author: LiuJian
  * @Date: 2020/4/3
  */
-public interface MenberDao extends JpaRepository<Member,Long> {
+public interface MemberDao extends JpaRepository<Member,Long> {
 }

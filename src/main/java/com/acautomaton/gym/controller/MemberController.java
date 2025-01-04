@@ -1,8 +1,8 @@
 package com.acautomaton.gym.controller;
 
-import com.acautomaton.gym.dao.MenberDao;
+import com.acautomaton.gym.dao.MemberDao;
 import com.acautomaton.gym.dao.RechargeDao;
-import com.acautomaton.gym.entity.Chongzhi;
+import com.acautomaton.gym.entity.Recharge;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.entity.Membertype;
 import com.acautomaton.gym.service.MenberDaoImpl;
@@ -20,11 +20,11 @@ import java.util.Map;
 @RequestMapping("/menber")
 public class MemberController {
     private final RechargeDao chongzhiDao;
-    private final MenberDao menberDao;
+    private final MemberDao menberDao;
     private final MenberDaoImpl menberDaoiImpl;
 
     @Autowired
-    public MemberController(RechargeDao chongzhiDao, MenberDao menberDao, MenberDaoImpl menberDaoImpl) {
+    public MemberController(RechargeDao chongzhiDao, MemberDao menberDao, MenberDaoImpl menberDaoImpl) {
         this.chongzhiDao = chongzhiDao;
         this.menberDao = menberDao;
         this.menberDaoiImpl = menberDaoImpl;
@@ -106,7 +106,7 @@ public class MemberController {
 
     @RequestMapping("/ins")
     @ResponseBody
-    public Map<String, Object> insert(Chongzhi chongzhi, String daoqi) {
+    public Map<String, Object> insert(Recharge chongzhi, String daoqi) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         java.sql.Timestamp dat = java.sql.Timestamp.valueOf(df.format(new Date()));

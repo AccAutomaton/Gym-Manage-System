@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Setter
 @Table(name = "chongzhi")
 @Entity
-public class Chongzhi {
+public class Recharge {
   @Id
   @GeneratedValue(strategy =  GenerationType.IDENTITY)
   private long id;
