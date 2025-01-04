@@ -2,7 +2,7 @@ package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.LoseDao;
 import com.acautomaton.gym.entity.Lose;
-import com.acautomaton.gym.service.LoosDaoImpl;
+import com.acautomaton.gym.service.LoseDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +13,10 @@ import java.util.*;
 @Controller
 @RequestMapping("/loos")
 public class LoseController {
-    private final LoosDaoImpl loosDaoImpl;
+    private final LoseDaoImpl loosDaoImpl;
     private final LoseDao loosDao;
 
-    @Autowired LoseController(LoosDaoImpl loosDaoImpl, LoseDao loosDao) {
+    @Autowired LoseController(LoseDaoImpl loosDaoImpl, LoseDao loosDao) {
         this.loosDaoImpl = loosDaoImpl;
         this.loosDao = loosDao;
     }
