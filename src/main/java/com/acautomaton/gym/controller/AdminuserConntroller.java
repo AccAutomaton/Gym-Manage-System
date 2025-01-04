@@ -1,7 +1,7 @@
 package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.AdminUserDao;
-import com.acautomaton.gym.entity.Adminuser;
+import com.acautomaton.gym.entity.AdminUser;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -39,7 +39,7 @@ public class AdminuserConntroller {
         UsernamePasswordToken userToken=new UsernamePasswordToken(username,DigestUtils.md5Hex(password));
         try{
             subject.login(userToken);
-            Adminuser a= adminuserDao.findByAdminNameAndAdminPassword(username,DigestUtils.md5Hex(password));
+            AdminUser a= adminuserDao.findByAdminNameAndAdminPassword(username,DigestUtils.md5Hex(password));
             httpSession.setAttribute("user",a);
             return "WEB-INF/jsp/index";
         }catch (UnknownAccountException e){
@@ -72,7 +72,7 @@ public class AdminuserConntroller {
             model.addAttribute("msg","两次输入新密码不一致,请重新输入");
             return "WEB-INF/jsp/updPassword";
         }
-        Adminuser adminuser=(Adminuser) httpSession.getAttribute("user");
+        AdminUser adminuser=(AdminUser) httpSession.getAttribute("user");
         if(null != adminuser){
             if(!adminuser.getAdminPassword().equals(DigestUtils.md5Hex(oldPassword))){
                 model.addAttribute("msg","原密码不正确,请重新输入");

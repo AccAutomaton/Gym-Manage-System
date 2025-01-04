@@ -1,7 +1,7 @@
 package com.acautomaton.gym.real;
 
 import com.acautomaton.gym.dao.AdminUserDao;
-import com.acautomaton.gym.entity.Adminuser;
+import com.acautomaton.gym.entity.AdminUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -20,7 +20,7 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         System.out.println("已授权");
         Subject subject = SecurityUtils.getSubject();
-        Adminuser user = (Adminuser) principalCollection.getPrimaryPrincipal() ;
+        AdminUser user = (AdminUser) principalCollection.getPrimaryPrincipal() ;
         //
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo() ;
         return null;
@@ -30,7 +30,7 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
 
         UsernamePasswordToken token = (UsernamePasswordToken)authenticationToken ;
-        Adminuser adminuser = adminuserDao.findByAdminNameAndAdminPassword(token.getUsername(),String.copyValueOf(token.getPassword()));
+        AdminUser adminuser = adminuserDao.findByAdminNameAndAdminPassword(token.getUsername(),String.copyValueOf(token.getPassword()));
 
         if(null == adminuser){
             return null ;
