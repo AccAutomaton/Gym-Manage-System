@@ -1,0 +1,7 @@
+package com.acautomaton.gym.dao;
+
+import com.acautomaton.gym.entity.Membertype;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MemberTypeDao extends JpaRepository<Membertype, Long> {
+}

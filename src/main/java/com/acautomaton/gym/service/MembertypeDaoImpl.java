@@ -1,6 +1,6 @@
 package com.acautomaton.gym.service;
 
-import com.acautomaton.gym.dao.MemberttypeDao;
+import com.acautomaton.gym.dao.MemberTypeDao;
 import com.acautomaton.gym.entity.Membertype;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ import java.util.Map;
 public class MembertypeDaoImpl {
 
     @Autowired
-    private MemberttypeDao memberttypeDao;
+    private MemberTypeDao memberttypeDao;
 
     /**
      * @Description: 会员卡类型service实现层-查询所有会员卡类型
