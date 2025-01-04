@@ -5,12 +5,13 @@ import com.acautomaton.gym.dao.RechargeDao;
 import com.acautomaton.gym.entity.Recharge;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.entity.MemberType;
-import com.acautomaton.gym.service.MenberDaoImpl;
+import com.acautomaton.gym.service.MemberDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,10 +22,10 @@ import java.util.Map;
 public class MemberController {
     private final RechargeDao chongzhiDao;
     private final MemberDao menberDao;
-    private final MenberDaoImpl menberDaoiImpl;
+    private final MemberDaoImpl menberDaoiImpl;
 
     @Autowired
-    public MemberController(RechargeDao chongzhiDao, MemberDao menberDao, MenberDaoImpl menberDaoImpl) {
+    public MemberController(RechargeDao chongzhiDao, MemberDao menberDao, MemberDaoImpl menberDaoImpl) {
         this.chongzhiDao = chongzhiDao;
         this.menberDao = menberDao;
         this.menberDaoiImpl = menberDaoImpl;
@@ -57,7 +58,7 @@ public class MemberController {
 
     @RequestMapping("/query")
     @ResponseBody
-    public Map<String, Object> query(int ktype, String hyname, int pageSize, int pageNumber) {
+    public Map<String, Object> query(int ktype, String hyname, int pageSize, int pageNumber) throws ParseException {
         return menberDaoiImpl.query(getTypeMap(ktype, hyname, pageSize, pageNumber));
     }
 
@@ -85,28 +86,28 @@ public class MemberController {
 
     @RequestMapping("/delete")
     @ResponseBody
-    public Map<String, Object> del(int memid) {
+    public Map<String, Object> del(int memid) throws ParseException {
         menberDaoiImpl.del(memid);
         return query(0, "", 5, 1);
     }
 
     @RequestMapping("/insert")
     @ResponseBody
-    public Map<String, Object> insert(Member member) {
+    public Map<String, Object> insert(Member member) throws ParseException {
         menberDaoiImpl.insert(member);
         return query(0, "", 5, 1);
     }
 
     @RequestMapping("/update")
     @ResponseBody
-    public Map<String, Object> update(Member member) {
+    public Map<String, Object> update(Member member) throws ParseException {
         menberDaoiImpl.update(member);
         return query(0, "", 5, 1);
     }
 
     @RequestMapping("/ins")
     @ResponseBody
-    public Map<String, Object> insert(Recharge chongzhi, String daoqi) {
+    public Map<String, Object> insert(Recharge chongzhi, String daoqi) throws ParseException {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         java.sql.Timestamp dat = java.sql.Timestamp.valueOf(df.format(new Date()));

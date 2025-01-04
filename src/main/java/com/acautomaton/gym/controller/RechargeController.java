@@ -4,7 +4,7 @@ import com.acautomaton.gym.dao.MemberDao;
 import com.acautomaton.gym.dao.RechargeDao;
 import com.acautomaton.gym.entity.Recharge;
 import com.acautomaton.gym.entity.Member;
-import com.acautomaton.gym.service.MenberDaoImpl;
+import com.acautomaton.gym.service.MemberDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,10 +27,10 @@ import java.util.*;
 public class RechargeController {
     private final RechargeDao chongzhiDao;
     private final MemberDao menberDao;
-    private final MenberDaoImpl menberDaoImpl;
+    private final MemberDaoImpl menberDaoImpl;
 
     @Autowired
-    public RechargeController(RechargeDao chongzhiDao, MemberDao menberDao, MenberDaoImpl menberDaoImpl) {
+    public RechargeController(RechargeDao chongzhiDao, MemberDao menberDao, MemberDaoImpl menberDaoImpl) {
         this.chongzhiDao = chongzhiDao;
         this.menberDao = menberDao;
         this.menberDaoImpl = menberDaoImpl;
@@ -51,7 +51,7 @@ public class RechargeController {
 
     @RequestMapping("/xin")
     @ResponseBody
-    public Map<String, Object> cye(Recharge chongzhi) {
+    public Map<String, Object> cye(Recharge chongzhi) throws ParseException {
         Member member = menberDao.findById(chongzhi.getMember().getMemberId()).get();
         member.setMemberbalance(member.getMemberbalance() + chongzhi.getMoney());
         menberDao.save(member);

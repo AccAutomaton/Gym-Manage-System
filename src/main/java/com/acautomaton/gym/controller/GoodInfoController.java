@@ -8,7 +8,7 @@ import com.acautomaton.gym.entity.Goods;
 import com.acautomaton.gym.entity.Member;
 import com.acautomaton.gym.service.GoodInfoDaoImpl;
 import com.acautomaton.gym.service.GoodsDaoImpl;
-import com.acautomaton.gym.service.MenberDaoImpl;
+import com.acautomaton.gym.service.MemberDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +26,11 @@ public class GoodInfoController {
     private final GoodInfoDaoImpl goodInfoDaoImpl;
     private final MemberDao menberDao;
     private final GoodsDaoImpl goodsDaoImpl;
-    private final MenberDaoImpl menberDaoImpl;
+    private final MemberDaoImpl menberDaoImpl;
 
     @Autowired
     public GoodInfoController(GoodInfoDao goodInfoDao, GoodsDao goodsDao, GoodInfoDaoImpl goodInfoDaoImpl,
-                              MemberDao menberDao, GoodsDaoImpl goodsDaoImpl, MenberDaoImpl menberDaoImpl) {
+                              MemberDao menberDao, GoodsDaoImpl goodsDaoImpl, MemberDaoImpl menberDaoImpl) {
         this.goodInfoDao = goodInfoDao;
         this.goodsDao = goodsDao;
         this.goodInfoDaoImpl = goodInfoDaoImpl;
