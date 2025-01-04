@@ -1,7 +1,7 @@
 package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.entity.MemberType;
-import com.acautomaton.gym.service.MembertypeDaoImpl;
+import com.acautomaton.gym.service.MemberTypeDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +14,10 @@ import java.util.Map;
 @Controller
 @RequestMapping("/ktype")
 public class MembertypeController {
-    private final MembertypeDaoImpl membertypeDaoImpl;
+    private final MemberTypeDaoImpl membertypeDaoImpl;
 
     @Autowired
-    public MembertypeController(MembertypeDaoImpl membertypeDaoImpl) {
+    public MembertypeController(MemberTypeDaoImpl membertypeDaoImpl) {
         this.membertypeDaoImpl = membertypeDaoImpl;
     }
 
@@ -38,7 +38,7 @@ public class MembertypeController {
         return getMemberTypeMap(typeName, pageSize, pageNumber, membertypeDaoImpl);
     }
 
-    static Map<String, Object> getMemberTypeMap(String typeName, int pageSize, int pageNumber, MembertypeDaoImpl membertypeDaoImpl) {
+    static Map<String, Object> getMemberTypeMap(String typeName, int pageSize, int pageNumber, MemberTypeDaoImpl membertypeDaoImpl) {
         Map<String, Object> map1 = new HashMap<>();
         map1.put("typeName", typeName);
         map1.put("qi", (pageNumber - 1) * pageSize);

@@ -2,7 +2,7 @@ package com.acautomaton.gym.controller;
 
 import com.acautomaton.gym.dao.MemberTypeDao;
 import com.acautomaton.gym.entity.MemberType;
-import com.acautomaton.gym.service.MembertypeDaoImpl;
+import com.acautomaton.gym.service.MemberTypeDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +16,11 @@ import static com.acautomaton.gym.controller.MembertypeController.getMemberTypeM
 @Controller
 @RequestMapping("/metype")
 public class MetypeController {
-    private final MembertypeDaoImpl membertypeDaoImpl;
+    private final MemberTypeDaoImpl membertypeDaoImpl;
     private final MemberTypeDao memberttypeDao;
 
     @Autowired
-    public MetypeController(MembertypeDaoImpl membertypeDaoImpl, MemberTypeDao memberttypeDao) {
+    public MetypeController(MemberTypeDaoImpl membertypeDaoImpl, MemberTypeDao memberttypeDao) {
         this.membertypeDaoImpl = membertypeDaoImpl;
         this.memberttypeDao = memberttypeDao;
     }
