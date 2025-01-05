@@ -74,7 +74,6 @@ public class ShiroConfig {
 
         Map<String, String> map = new LinkedHashMap<>();
         map.put("/login.jsp", "anon");
-        map.put("/vcode.jsp", "anon");
         map.put("/dl/yz", "anon");
         map.put("/static/**", "anon");
         map.put("/logout", "logout");
