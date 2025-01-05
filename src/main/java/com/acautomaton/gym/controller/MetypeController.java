@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 import java.util.Optional;
 
-import static com.acautomaton.gym.controller.MembertypeController.getMemberTypeMap;
+import static com.acautomaton.gym.controller.MemberTypeController.getMemberTypeMap;
 
 @Controller
 @RequestMapping("/metype")

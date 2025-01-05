@@ -1,11 +1,4 @@
-<%--suppress JSUnresolvedReference --%>
-<%--suppress HtmlUnknownAttribute --%>
-<%--suppress JSJQueryEfficiency --%>
-<%--suppress HtmlUnknownAttribute --%>
-<%--suppress JSJQueryEfficiency --%>
-<%--suppress HtmlUnknownAttribute --%>
-<%--suppress JSUnresolvedReference --%>
-<%--suppress JSJQueryEfficiency --%>
+<%--suppress ALL --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <script src="${pageContext.request.contextPath}/static/jquery-3.2.1.min.js">
@@ -447,7 +440,7 @@
             <button type="button" onclick="dels()" class="btn btn-default" style="float: right; margin-right: 20px">
                 <span class="glyphicon glyphicon-minus"></span>批量删除信息
             </button>
-            <button type="button" id="download" style="margin-left:20px;" id="btn_download" class="btn btn-primary"
+            <button type="button" style="margin-left:20px;" id="download btn_download" class="btn btn-primary"
                     onClick="$('#table').tableExport({ type: 'excel', escape: 'false' })">数据导出
             </button>
         </form>

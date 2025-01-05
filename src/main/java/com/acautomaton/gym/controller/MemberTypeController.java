@@ -13,11 +13,11 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/ktype")
-public class MembertypeController {
+public class MemberTypeController {
     private final MemberTypeDaoImpl membertypeDaoImpl;
 
     @Autowired
-    public MembertypeController(MemberTypeDaoImpl membertypeDaoImpl) {
+    public MemberTypeController(MemberTypeDaoImpl membertypeDaoImpl) {
         this.membertypeDaoImpl = membertypeDaoImpl;
     }
 
