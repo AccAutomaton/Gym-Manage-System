@@ -38,7 +38,7 @@ public class MemberController {
 
     @RequestMapping("/jin3")
     public String jin3() {
-        return "WEB-INF/jsp/MemberRecharge";
+        return "WEB-INF/jsp/MemberDelay";
     }
 
     @RequestMapping("/jin11")
