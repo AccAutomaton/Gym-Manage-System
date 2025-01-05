@@ -48,7 +48,7 @@ public class MemberController {
 
     @RequestMapping("/jin")
     public String jin() {
-        return "WEB-INF/jsp/HYMember";
+        return "WEB-INF/jsp/Member";
     }
 
     @RequestMapping("/jin4")
