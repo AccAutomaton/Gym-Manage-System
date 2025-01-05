@@ -23,7 +23,7 @@ public class LoseController {
 
     @RequestMapping("/jin9")
     public String jin7() {
-        return "WEB-INF/jsp/loos";
+        return "WEB-INF/jsp/Lose";
     }
 
     @RequestMapping("/query")

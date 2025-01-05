@@ -23,7 +23,7 @@ public class MemberTypeController {
 
     @RequestMapping("/jin5")
     public String jin5() {
-        return "WEB-INF/jsp/Membertype";
+        return "WEB-INF/jsp/MemberType";
     }
 
     @RequestMapping("/query")

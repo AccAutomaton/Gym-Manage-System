@@ -41,7 +41,7 @@ public class AdminuserConntroller {
             subject.login(userToken);
             AdminUser a= adminuserDao.findByAdminNameAndAdminPassword(username,DigestUtils.md5Hex(password));
             httpSession.setAttribute("user",a);
-            return "WEB-INF/jsp/index";
+            return "WEB-INF/jsp/Index";
         }catch (UnknownAccountException e){
             model.addAttribute("msg","用户名或密码错误,请重新输入");
             return "login";

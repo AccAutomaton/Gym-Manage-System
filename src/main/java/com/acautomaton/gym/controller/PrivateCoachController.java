@@ -40,7 +40,7 @@ public class PrivateCoachController {
 
     @RequestMapping("/jin3")
     public String jin3() {
-        return "WEB-INF/jsp/privatecoach";
+        return "WEB-INF/jsp/PrivateCoach";
     }
 
     @RequestMapping("/query")
