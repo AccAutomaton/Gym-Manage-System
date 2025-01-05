@@ -32,7 +32,7 @@ public class SubjectController {
 
     @RequestMapping("/jin7")
     public String jin7() {
-        return "WEB-INF/jsp/subject";
+        return "WEB-INF/jsp/Subject";
     }
 
     @RequestMapping("/query")

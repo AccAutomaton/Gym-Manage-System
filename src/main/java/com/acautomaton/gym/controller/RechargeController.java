@@ -46,7 +46,7 @@ public class RechargeController {
 
     @RequestMapping("/jin2")
     public String jin2() {
-        return "WEB-INF/jsp/ShouRuTongji";
+        return "WEB-INF/jsp/IncomeStatistic";
     }
 
     @RequestMapping("/xin")

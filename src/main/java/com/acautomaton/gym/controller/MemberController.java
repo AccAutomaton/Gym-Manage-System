@@ -53,7 +53,7 @@ public class MemberController {
 
     @RequestMapping("/jin4")
     public String jin4() {
-        return "WEB-INF/jsp/privatecoachinfo";
+        return "WEB-INF/jsp/PrivateCoachInfo";
     }
 
     @RequestMapping("/query")

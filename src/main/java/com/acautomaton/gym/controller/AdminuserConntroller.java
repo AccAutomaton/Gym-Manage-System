@@ -33,8 +33,6 @@ public class AdminuserConntroller {
 
     @RequestMapping("/dl/yz")
     public String login(String username, String password,HttpSession httpSession,Model model){
-
-
         Subject subject= SecurityUtils.getSubject();
         UsernamePasswordToken userToken=new UsernamePasswordToken(username,DigestUtils.md5Hex(password));
         try{
@@ -57,7 +55,7 @@ public class AdminuserConntroller {
 
     @RequestMapping("/updPassword")
     public String updPassword(){
-        return "WEB-INF/jsp/updPassword";
+        return "WEB-INF/jsp/UpdatePassword";
     }
 
     @RequestMapping("/upd/updPassword")
@@ -66,17 +64,17 @@ public class AdminuserConntroller {
         Matcher m = p.matcher(newPassword);
         if(!m.matches()){
             model.addAttribute("msg","新密码最少为8位并为字母+数字+特殊字符");
-            return "WEB-INF/jsp/updPassword";
+            return "WEB-INF/jsp/UpdatePassword";
         }
         if(!newPassword.equals(newPasswordAgain)){
             model.addAttribute("msg","两次输入新密码不一致,请重新输入");
-            return "WEB-INF/jsp/updPassword";
+            return "WEB-INF/jsp/UpdatePassword";
         }
         AdminUser adminuser=(AdminUser) httpSession.getAttribute("user");
         if(null != adminuser){
             if(!adminuser.getAdminPassword().equals(DigestUtils.md5Hex(oldPassword))){
                 model.addAttribute("msg","原密码不正确,请重新输入");
-                return "WEB-INF/jsp/updPassword";
+                return "WEB-INF/jsp/UpdatePassword";
             }
             adminuserDao.updPassword(adminuser.getAdminId(), DigestUtils.md5Hex(newPassword));
         }
