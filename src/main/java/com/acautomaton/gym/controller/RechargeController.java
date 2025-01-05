@@ -41,7 +41,7 @@ public class RechargeController {
 
     @RequestMapping("/jin")
     public String jin() {
-        return "WEB-INF/jsp/HYMemberjilu";
+        return "WEB-INF/jsp/MemberRecord";
     }
 
     @RequestMapping("/jin2")
