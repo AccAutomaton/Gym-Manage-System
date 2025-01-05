@@ -15,12 +15,12 @@ import static com.acautomaton.gym.controller.MemberTypeController.getMemberTypeM
 
 @Controller
 @RequestMapping("/metype")
-public class MetypeController {
+public class MemberTypeManagementController {
     private final MemberTypeDaoImpl membertypeDaoImpl;
     private final MemberTypeDao memberttypeDao;
 
     @Autowired
-    public MetypeController(MemberTypeDaoImpl membertypeDaoImpl, MemberTypeDao memberttypeDao) {
+    public MemberTypeManagementController(MemberTypeDaoImpl membertypeDaoImpl, MemberTypeDao memberttypeDao) {
         this.membertypeDaoImpl = membertypeDaoImpl;
         this.memberttypeDao = memberttypeDao;
     }
