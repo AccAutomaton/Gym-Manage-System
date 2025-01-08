@@ -20,10 +20,10 @@ INSERT INTO `adminuser` VALUES ('1', 'admin', '0192023a7bbd73250516f069df18b500'
 INSERT INTO `adminuser` VALUES ('7', 'liujian', '0192023a7bbd73250516f069df18b500');
 
 -- ----------------------------
--- Table structure for chongzhi
+-- Table structure for recharge
 -- ----------------------------
-DROP TABLE IF EXISTS `chongzhi`;
-CREATE TABLE `chongzhi` (
+DROP TABLE IF EXISTS `recharge`;
+CREATE TABLE `recharge` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Memberid` int(11) DEFAULT NULL,
   `Typeid` int(11) DEFAULT NULL,
@@ -38,43 +38,43 @@ CREATE TABLE `chongzhi` (
 ) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of chongzhi
+-- Records of recharge
 -- ----------------------------
-INSERT INTO `chongzhi` VALUES ('6', '38', '2', '150', '150', '0', '2020-04-07 18:58:24', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('8', '34', '1', '500', '1000', '0', '2020-04-08 15:29:09', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('10', '34', null, '500', '500', '0', '2020-04-08 15:31:49', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('11', '25', null, '500', '500', '0', '2020-04-08 15:33:08', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('12', '26', '5', '50', '100', '50', '2020-04-08 15:37:17', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('13', '26', '1', '500', '1000', '500', '2020-04-08 15:38:22', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('14', '26', '1', '500', '500', '0', '2020-04-08 15:40:44', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('15', '26', '1', '500', '500', '0', '2020-04-08 15:42:03', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('16', '34', '5', '50', '50', '0', '2020-04-08 15:43:00', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('17', '34', '3', '1000', '1000', '0', '2020-04-08 15:43:33', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('18', '34', '1', '500', '500', '0', '2020-04-08 15:43:51', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('19', '34', '2', '150', '1000', '850', '2020-04-08 15:44:37', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('20', '34', '1', '500', '500', '0', '2020-04-08 15:46:55', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('32', '25', '1', '500', '500', '0', '2020-04-08 17:43:37', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('57', '26', null, '-10', '200', '0', '2020-04-08 18:25:19', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('58', '26', null, '50', '200', '0', '2020-04-08 18:25:35', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('60', '26', '5', '50', '100', '50', '2020-04-08 18:37:19', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('61', '25', '2', '150', '200', '50', '2020-04-11 16:28:03', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('63', '25', '1', '500', '2000', '1500', '2020-04-11 16:43:37', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('64', '25', '1', '500', '500', '0', '2020-04-11 16:53:43', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('65', '43', '1', '500', '400', '-100', '2020-04-11 16:54:09', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('66', '35', '2', '150', '200', '50', '2020-04-11 16:54:41', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('67', '25', '1', '500', '1', '-499', '2020-04-11 16:55:47', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('68', '25', '3', '1000', '1000', '0', '2020-04-11 16:57:01', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('72', '25', null, '200', '200', '0', '2020-04-11 17:03:03', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('77', '25', null, '200', '200', '0', '2020-04-11 17:13:21', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('78', '26', null, '200', '200', '0', '2020-04-11 17:13:37', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('81', '25', '1', '1000', '1000', '0', '2020-04-11 17:14:32', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('82', '25', null, '200', '200', '0', '2020-04-11 17:14:40', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('83', '35', null, '200', '200', '0', '2020-04-11 17:16:31', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('84', '37', '3', '1000', '1000', '0', '2020-05-03 15:33:32', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('85', '35', '1', '500', '500', '0', '2020-05-03 15:33:56', '0', '', '2');
-INSERT INTO `chongzhi` VALUES ('86', '25', null, '500', '500', '0', '2020-05-03 15:34:32', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('87', '34', null, '1000', '1000', '0', '2020-05-03 15:35:37', '0', '', '1');
-INSERT INTO `chongzhi` VALUES ('88', '37', null, '1000', '1000', '0', '2020-05-03 15:35:58', '0', '', '1');
+INSERT INTO `recharge` VALUES ('6', '38', '2', '150', '150', '0', '2020-04-07 18:58:24', '0', '', '2');
+INSERT INTO `recharge` VALUES ('8', '34', '1', '500', '1000', '0', '2020-04-08 15:29:09', '0', '', '2');
+INSERT INTO `recharge` VALUES ('10', '34', null, '500', '500', '0', '2020-04-08 15:31:49', '0', '', '1');
+INSERT INTO `recharge` VALUES ('11', '25', null, '500', '500', '0', '2020-04-08 15:33:08', '0', '', '1');
+INSERT INTO `recharge` VALUES ('12', '26', '5', '50', '100', '50', '2020-04-08 15:37:17', '0', '', '2');
+INSERT INTO `recharge` VALUES ('13', '26', '1', '500', '1000', '500', '2020-04-08 15:38:22', '0', '', '2');
+INSERT INTO `recharge` VALUES ('14', '26', '1', '500', '500', '0', '2020-04-08 15:40:44', '0', '', '2');
+INSERT INTO `recharge` VALUES ('15', '26', '1', '500', '500', '0', '2020-04-08 15:42:03', '0', '', '2');
+INSERT INTO `recharge` VALUES ('16', '34', '5', '50', '50', '0', '2020-04-08 15:43:00', '0', '', '2');
+INSERT INTO `recharge` VALUES ('17', '34', '3', '1000', '1000', '0', '2020-04-08 15:43:33', '0', '', '2');
+INSERT INTO `recharge` VALUES ('18', '34', '1', '500', '500', '0', '2020-04-08 15:43:51', '0', '', '2');
+INSERT INTO `recharge` VALUES ('19', '34', '2', '150', '1000', '850', '2020-04-08 15:44:37', '0', '', '2');
+INSERT INTO `recharge` VALUES ('20', '34', '1', '500', '500', '0', '2020-04-08 15:46:55', '0', '', '2');
+INSERT INTO `recharge` VALUES ('32', '25', '1', '500', '500', '0', '2020-04-08 17:43:37', '0', '', '2');
+INSERT INTO `recharge` VALUES ('57', '26', null, '-10', '200', '0', '2020-04-08 18:25:19', '0', '', '1');
+INSERT INTO `recharge` VALUES ('58', '26', null, '50', '200', '0', '2020-04-08 18:25:35', '0', '', '1');
+INSERT INTO `recharge` VALUES ('60', '26', '5', '50', '100', '50', '2020-04-08 18:37:19', '0', '', '2');
+INSERT INTO `recharge` VALUES ('61', '25', '2', '150', '200', '50', '2020-04-11 16:28:03', '0', '', '2');
+INSERT INTO `recharge` VALUES ('63', '25', '1', '500', '2000', '1500', '2020-04-11 16:43:37', '0', '', '2');
+INSERT INTO `recharge` VALUES ('64', '25', '1', '500', '500', '0', '2020-04-11 16:53:43', '0', '', '2');
+INSERT INTO `recharge` VALUES ('65', '43', '1', '500', '400', '-100', '2020-04-11 16:54:09', '0', '', '2');
+INSERT INTO `recharge` VALUES ('66', '35', '2', '150', '200', '50', '2020-04-11 16:54:41', '0', '', '2');
+INSERT INTO `recharge` VALUES ('67', '25', '1', '500', '1', '-499', '2020-04-11 16:55:47', '0', '', '2');
+INSERT INTO `recharge` VALUES ('68', '25', '3', '1000', '1000', '0', '2020-04-11 16:57:01', '0', '', '2');
+INSERT INTO `recharge` VALUES ('72', '25', null, '200', '200', '0', '2020-04-11 17:03:03', '0', '', '1');
+INSERT INTO `recharge` VALUES ('77', '25', null, '200', '200', '0', '2020-04-11 17:13:21', '0', '', '1');
+INSERT INTO `recharge` VALUES ('78', '26', null, '200', '200', '0', '2020-04-11 17:13:37', '0', '', '1');
+INSERT INTO `recharge` VALUES ('81', '25', '1', '1000', '1000', '0', '2020-04-11 17:14:32', '0', '', '2');
+INSERT INTO `recharge` VALUES ('82', '25', null, '200', '200', '0', '2020-04-11 17:14:40', '0', '', '1');
+INSERT INTO `recharge` VALUES ('83', '35', null, '200', '200', '0', '2020-04-11 17:16:31', '0', '', '1');
+INSERT INTO `recharge` VALUES ('84', '37', '3', '1000', '1000', '0', '2020-05-03 15:33:32', '0', '', '2');
+INSERT INTO `recharge` VALUES ('85', '35', '1', '500', '500', '0', '2020-05-03 15:33:56', '0', '', '2');
+INSERT INTO `recharge` VALUES ('86', '25', null, '500', '500', '0', '2020-05-03 15:34:32', '0', '', '1');
+INSERT INTO `recharge` VALUES ('87', '34', null, '1000', '1000', '0', '2020-05-03 15:35:37', '0', '', '1');
+INSERT INTO `recharge` VALUES ('88', '37', null, '1000', '1000', '0', '2020-05-03 15:35:58', '0', '', '1');
 
 -- ----------------------------
 -- Table structure for coach
